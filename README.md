@@ -46,7 +46,7 @@ Flask-SQLAlchemy
 Plotly
 NumPy
 TensorFlow
-Scikit-learn![start](https://github.com/user-attachments/assets/2577274a-03fc-4372-9cef-1f981410e5b9)
+Scikit-Learn
 ![Screenshot 2024-09-14 170230](https://github.com/user-attachments/assets/5d257315-fd1e-4b77-958e-f97bddcb7cbd)
 ![Screenshot 2024-09-14 170214](https://github.com/user-attachments/assets/f887cb1d-c901-4b91-96f1-e7f96955b53b)
 ![Screenshot 2024-09-14 170153](https://github.com/user-attachments/assets/fe04b601-d05f-44a4-b2ec-5ba9250521a7)
