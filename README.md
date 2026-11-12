@@ -1,59 +1,52 @@
-CodeCure
+# CodeCure — AI-Assisted Healthcare & Symptom Prediction Web App
 
+[![Python](https://img.shields.io/badge/Python-Flask-3776AB?style=flat-square&logo=python&logoColor=white)](https://github.com/VaibhavBajpaij/CodeCure-Healthcare-Website-GFGXNIET)
+[![ML](https://img.shields.io/badge/ML-Scikit--Learn_%26_TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://github.com/VaibhavBajpaij/CodeCure-Healthcare-Website-GFGXNIET)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
-CodeCure is a web application developed using Flask, a web framework in Python that aims to assist patients in obtaining the necessary medical care for their needs. The system allows users to register as patients or doctors, book appointments, and predict diseases based on symptoms. Doctors can view and manage appointments, while patients can track their appointments and update their profiles. Additionally, the system provides information on various health-related topics through blog posts and also analyses mental health conditiion of patients.
+**CodeCure** is a full-stack Python **Flask** and **SQLAlchemy** healthcare web application featuring patient/doctor appointment workflows, automated PDF prescription generation, health analytics with **Plotly**, and symptom-based disease prediction powered by **Scikit-learn** and **TensorFlow**.
 
-Features
-User Registration:
+---
 
-Patients and doctors can register using the system.
-Patients provide basic information such as username, email, and password.
-Doctors provide additional information, including their type of specialization.
-User Login and Logout:
+## Key Features
 
-Users can log in to access personalized dashboards.
-Sessions are managed to ensure secure access, and users can log out when done.
-Appointment Booking:
+- **Patient & Doctor Portals:** Registration, role-based views, session authentication, and appointment booking/status tracking via SQLite/SQLAlchemy.
+- **Symptom-Based Disease Prediction:** Decision Tree classifier (`scikit-learn`) trained on 132 clinical symptom indicators returning predicted diagnosis and probability score.
+- **Diagnostics & Medical Imaging Modules:** Dedicated endpoints for lung and cataract screening workflows (`TensorFlow / Keras`).
+- **Prescription PDF Export & Mail Alerts:** Dynamic prescription PDF generation (`ReportLab`) and SMTP notifications (`Flask-Mail`).
 
-Patients can book appointments with doctors.
-Doctors can view and manage appointments assigned to them.
-Disease Prediction:
+---
 
-A machine learning model predicts diseases based on user-input symptoms.
-The system uses a Decision Tree Classifier trained on medical data.
-Blog Section:
+## Architecture Overview
 
-Information on various health-related topics is provided through blog posts.
-Topics include Transforming Healthcare, Holistic Health, Nourishing Body, and Importance of Games.
+```mermaid
+flowchart LR
+    U[Patient / Doctor Browser] --> F[Flask Routes & Jinja2 Templates]
+    F --> DB[(SQLite / SQLAlchemy ORM)]
+    F --> ML[Scikit-learn & TensorFlow Predictors]
+    F --> PDF[ReportLab PDF & Flask-Mail]
+```
 
-Users can find information on different medical scans, such as  lung, and full body symptoms scans.
-Project Structure
-app.py: The main Flask application file containing routes and functionality.
-templates: Contains HTML templates for rendering web pages.
-static: Contains static files such as CSS, images, and data.
-database.db: SQLite database file storing user and appointment information.
-Data: Contains CSV files used for training and testing the disease prediction model.
+---
 
+## Local Setup
 
+```bash
+git clone https://github.com/VaibhavBajpaij/CodeCure-Healthcare-Website-GFGXNIET.git
+cd CodeCure-Healthcare-Website-GFGXNIET
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-Clone the repository: git clone https://github.com/VaibhavBajpaij/CodeCure-Healthcare-Website-GFGXNIET
-Install dependencies: pip install -r requirements.txt
-Run the application: python app.py
+Create a `.env` file with `FLASK_SECRET_KEY`, `MAIL_SERVER`, `MAIL_USERNAME`, and `MAIL_PASSWORD`, then run:
 
-Dependencies
-Flask
-Flask-SQLAlchemy
-Plotly
-NumPy
-TensorFlow
-Scikit-Learn
-![Screenshot 2024-09-14 170230](https://github.com/user-attachments/assets/5d257315-fd1e-4b77-958e-f97bddcb7cbd)
-![Screenshot 2024-09-14 170214](https://github.com/user-attachments/assets/f887cb1d-c901-4b91-96f1-e7f96955b53b)
-![Screenshot 2024-09-14 170153](https://github.com/user-attachments/assets/fe04b601-d05f-44a4-b2ec-5ba9250521a7)
-![Screenshot 2024-09-14 170127](https://github.com/user-attachments/assets/2fb354af-581b-41c6-b948-20ec7c5d1c97)
-![Screenshot 2024-09-14 170113](https://github.com/user-attachments/assets/2f43b485-bcef-434e-9285-ffe79b1791db)
-![Screenshot 2024-09-14 170055](https://github.com/user-attachments/assets/151bd88f-6f06-4cb5-a0de-a26f3f612b3b)
-![Screenshot 2024-09-14 170041](https://github.com/user-attachments/assets/6c414aa7-2c53-434a-ba0c-d35a33cb6c4b)
-![Screenshot 2024-09-14 170022](https://github.com/user-attachments/assets/f2658771-ddc0-4d98-8779-5b1d82cabcc3)
+```bash
+python app.py
+```
 
+---
 
+## Tech Stack
+
+`Python` · `Flask` · `SQLAlchemy` · `SQLite` · `Scikit-learn` · `TensorFlow` · `Plotly` · `Pandas` · `ReportLab`
