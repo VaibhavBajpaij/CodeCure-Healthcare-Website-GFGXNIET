@@ -6,6 +6,7 @@ import random
 import string
 from werkzeug.utils import secure_filename
 import os
+import secrets
 import plotly.express as px
 import numpy as np
 from tensorflow.keras.preprocessing import image
@@ -30,7 +31,7 @@ app = Flask(__name__)
 mail = Mail(app)
 load_dotenv()
 
-app.secret_key = 'MYSECRETKEY'
+app.secret_key = os.getenv('FLASK_SECRET_KEY') or secrets.token_hex(32)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
@@ -555,4 +556,4 @@ def cataract():
 
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True)
+    app.run(debug=os.getenv('FLASK_DEBUG') == '1')
